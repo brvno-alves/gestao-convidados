@@ -14,6 +14,42 @@
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
 <body>
-<h1>Testando 1 2 3</h1>
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h1 class="panel-title">Lista de convidados</h1>
+		</div>
+	<form class="form-inline" method="POST" style="margin: 20px 0">
+	<div class="form-group">
+		<input type="text" class="form-control"
+			placeholder="Nome"/>
+		<input type="text" class="form-control"
+			placeholder="Acompanhantes"/>
+		<button type="submit"
+			class="btn btn-primary">Adicionar</button>
+	</div>
+</form>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Acompanhantes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>João</td>
+						<td>3</td>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr th:each="convidado : ${convidados}">
+						<td th:text="${convidado.nome}"></td>
+						<td th:text="${convidado.quantidadeAcompanhantes}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
